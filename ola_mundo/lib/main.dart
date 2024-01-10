@@ -1,60 +1,48 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp(
-    title: "Testando certo!!!!",
-  ));
+  runApp(const MyApp("Testando"));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({
-    super.key,
-    required this.title,
-  });
+class MyApp extends StatefulWidget {
+  const MyApp(this.name, {super.key});
 
-  final String title;
+  final String name;
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  double salario = 3500;
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: AppBarTeste(),
+    return Center(
+      child: GestureDetector(
+        onTap: () {
+          log("Clicando");
+          // aumentarSalario();
+          diminuirSalario();
+          log(salario.toString());
+        },
+        child: Text("Meu nome é ${widget.name} e meu salário é $salario",
+            textDirection: TextDirection.ltr),
+      ),
     );
   }
-}
 
-class AppBarTeste extends StatelessWidget {
-  const AppBarTeste({super.key, this.title = ""});
+  void aumentarSalario() {
+    setState(() {
+      salario = salario + 100;
+    });
+  }
 
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        actions: <Widget>[
-          IconButton(
-            tooltip: "Mostra Snackbar",
-            icon: const Icon(Icons.add_alert),
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("Testando snackbar"),
-                ),
-              );
-            },
-          )
-        ],
-      ),
-      body: const Center(
-        child: Text(
-          "Olá mundo!",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 50,
-          ),
-        ),
-      ),
-    );
+  void diminuirSalario() {
+    setState(() {
+      salario = salario - 100;
+    });
   }
 }
