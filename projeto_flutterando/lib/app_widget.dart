@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_flutterando/homePages/home_page_widget.dart';
+import 'package:projeto_flutterando/pages/home_page_widget.dart';
+import 'package:projeto_flutterando/pages/login_page.dart';
+import 'package:projeto_flutterando/pages/second_page_widget_2.dart';
 import 'package:projeto_flutterando/theme_controller.dart';
 
 class AppWidget extends StatelessWidget {
@@ -18,7 +20,19 @@ class AppWidget extends StatelessWidget {
               ? const ColorScheme.dark()
               : const ColorScheme.light(),
         ),
-        home: HomePage(key: super.key),
+        // home: LoginPage(key: super.key),
+        initialRoute: "/",
+        routes: {
+          "/": (context) => LoginPage(
+                key: super.key,
+              ),
+          "/home": (context) => HomePage(
+                key: super.key,
+              ),
+          "/home_caminho_2": (context) => SegundaTela(
+                key: super.key,
+              ),
+        },
       ),
     );
   }

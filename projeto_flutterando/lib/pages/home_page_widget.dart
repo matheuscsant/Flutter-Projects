@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:projeto_flutterando/homePages/home_page_widget_2.dart';
 import 'package:projeto_flutterando/theme_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,15 +22,42 @@ class _HomePageState extends State<HomePage> {
           SwitchTheme(key: widget.key),
         ],
       ),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Contador: $counter"),
-          const Text("Escuridão?"),
-          SwitchTheme(key: widget.key),
-        ],
-      )),
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          // scrollDirection: Axis.horizontal,
+          children: [
+            Text("Contador: $counter"),
+            const Text("Escuridão?"),
+            SwitchTheme(key: widget.key),
+            Container(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.black,
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.cyanAccent,
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  color: Colors.lime,
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
       drawer: const AppDrawer(),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
@@ -68,12 +94,7 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               log("Olá drawer!");
               Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SegundaTela(),
-                ),
-              );
+              Navigator.of(context).pushNamed("/home_caminho_2");
             },
           ),
           ListTile(
