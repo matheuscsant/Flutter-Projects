@@ -43,7 +43,7 @@ app.*.map.json
 /android/app/release
 
 # Ignoring other codes
-scaffold/linux
-scaffold/macos
-scaffold/web
-scaffold/windows
+/scaffold/linux
+/scaffold/macos
+/scaffold/web
+/scaffold/windows
