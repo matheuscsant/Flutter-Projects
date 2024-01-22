@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:projeto_flutterando/controller/theme_controller.dart';
+import 'package:projeto_flutterando/app/controller/theme_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

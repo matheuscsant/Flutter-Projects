@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_flutterando/controller/theme_controller.dart';
-import 'package:projeto_flutterando/widget/converter_page_widget.dart';
-import 'package:projeto_flutterando/widget/home_page_widget.dart';
-import 'package:projeto_flutterando/widget/login_page_widget.dart';
-import 'package:projeto_flutterando/widget/second_page_widget_2.dart';
+import 'package:projeto_flutterando/app/controller/theme_controller.dart';
+import 'package:projeto_flutterando/app/widget/converter_page_widget.dart';
+import 'package:projeto_flutterando/app/widget/home_page_widget.dart';
+import 'package:projeto_flutterando/app/widget/login_page_widget.dart';
+import 'package:projeto_flutterando/app/widget/second_page_widget_2.dart';
 
 class AppWidget extends StatelessWidget {
   final String title;
