@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_flutterando/pages/home_page_widget.dart';
-import 'package:projeto_flutterando/pages/login_page.dart';
-import 'package:projeto_flutterando/pages/second_page_widget_2.dart';
-import 'package:projeto_flutterando/theme_controller.dart';
+import 'package:projeto_flutterando/controller/theme_controller.dart';
+import 'package:projeto_flutterando/widget/converter_page_widget.dart';
+import 'package:projeto_flutterando/widget/home_page_widget.dart';
+import 'package:projeto_flutterando/widget/login_page_widget.dart';
+import 'package:projeto_flutterando/widget/second_page_widget_2.dart';
 
 class AppWidget extends StatelessWidget {
   final String title;
@@ -21,7 +22,7 @@ class AppWidget extends StatelessWidget {
               : const ColorScheme.light(),
         ),
         // home: LoginPage(key: super.key),
-        initialRoute: "/",
+        initialRoute: "/converter",
         routes: {
           "/": (context) => LoginPage(
                 key: super.key,
@@ -30,6 +31,9 @@ class AppWidget extends StatelessWidget {
                 key: super.key,
               ),
           "/home_caminho_2": (context) => SegundaTela(
+                key: super.key,
+              ),
+          "/converter": (context) => ConverterMoedas(
                 key: super.key,
               ),
         },

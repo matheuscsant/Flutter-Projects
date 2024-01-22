@@ -28,25 +28,20 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text(
-          "Appbar olá mundo",
-        ),
+      appBar: myAppBar(context),
+      body: Image.network(
+        "https://conteudo.imguol.com.br/c/entretenimento/70/2021/05/25/codigo-binario-1621982130311_v2_900x506.jpg",
+        fit: BoxFit.cover,
+        height: double.infinity,
       ),
-      body: const Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Center(
-            child: Text("Olá mundo!!"),
-          ),
-          Center(
-            child: Text("Olá mundo da frente!"),
-          ),
-          Center(
-            child: Text("Testando"),
-          )
-        ],
+    );
+  }
+
+  AppBar myAppBar(BuildContext context) {
+    return AppBar(
+      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      title: const Text(
+        "Testando imagens",
       ),
     );
   }

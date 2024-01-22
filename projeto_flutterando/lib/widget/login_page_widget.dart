@@ -16,8 +16,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Stack(children: [
+      body: Stack(
+        children: [
           Positioned(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           _configBody(context)
-        ]),
+        ],
       ),
     );
   }
@@ -109,24 +109,47 @@ class _LoginPageState extends State<LoginPage> {
                           //   ),
                           // ); pushReplacement remove a tela anterior
                           // Navigator.of(context).pushNamed("/home");
-                          Navigator.of(context).pushReplacementNamed("/home");
+                          showDialog(
+                            context: context,
+                            builder: (context) => const AlertDialog(
+                              content: Row(
+                                children: [
+                                  CircularProgressIndicator(),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text("Loading..."),
+                                ],
+                              ),
+                            ),
+                          );
+                          Future.delayed(
+                            const Duration(seconds: 3),
+                            () {
+                              Navigator.pop(context); //pop dialog
+                              Navigator.of(context).pushNamed(
+                                  "/home"); // Async, aqui ele executa em um thread separada,
+                              // tudo que estiver fora ira ser executado normalmente
+                            },
+                          );
                         } else {
                           log("Login inválido");
                           showDialog(
-                              context: context,
-                              builder: (context) => AlertDialog(
-                                    title: const Text(
-                                      "Falha de login",
-                                    ),
-                                    content: const Text(
-                                        "Usuário de desenvolvimento\nUsuário: teste\nSenha: 123"),
-                                    actions: [
-                                      ElevatedButton(
-                                          onPressed: () =>
-                                              Navigator.of(context).pop(),
-                                          child: const Text("Fechar"))
-                                    ],
-                                  ));
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text(
+                                "Falha de login",
+                              ),
+                              content: const Text(
+                                  "Usuário de desenvolvimento\nUsuário: teste\nSenha: 123"),
+                              actions: [
+                                ElevatedButton(
+                                  onPressed: () => Navigator.of(context).pop(),
+                                  child: const Text("Fechar"),
+                                )
+                              ],
+                            ),
+                          );
                         }
                       },
                       child: const Text(
