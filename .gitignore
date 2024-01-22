@@ -43,7 +43,9 @@ app.*.map.json
 /android/app/release
 
 # Ignoring other codes
-/scaffold/linux
-/scaffold/macos
-/scaffold/web
-/scaffold/windows
+/projeto_flutterando/linux/
+/projeto_flutterando/macos/
+/projeto_flutterando/web/
+/projeto_flutterando/windows/
+/projeto_flutterando/ios/
+/projeto_flutterando/android/
