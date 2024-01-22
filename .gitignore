@@ -70,3 +70,10 @@ app.*.map.json
 /scaffold/windows/
 /scaffold/ios/
 /scaffold/android/
+
+/money_converter/linux/
+/money_converter/macos/
+/money_converter/web/
+/money_converter/windows/
+/money_converter/ios/
+/money_converter/android/
