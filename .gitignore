@@ -41,3 +41,9 @@ app.*.map.json
 **/android/app/debug
 /android/app/profile
 /android/app/release
+
+# Ignoring other codes
+/scaffold/linux
+/scaffold/macos
+/scaffold/web
+/scaffold/windows
