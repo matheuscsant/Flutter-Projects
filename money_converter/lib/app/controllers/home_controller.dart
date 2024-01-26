@@ -10,7 +10,10 @@ class HomeController {
   final TextEditingController toText;
   final TextEditingController fromText;
 
-  HomeController(this.toText, this.fromText) {
+  HomeController(
+    this.toText,
+    this.fromText,
+  ) {
     curriencies = CurrencyModel.getCurrencies();
     toCurrency = curriencies[0];
     fromCurrency = curriencies[1];
