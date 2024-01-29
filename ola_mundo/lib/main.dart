@@ -1,48 +1,19 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:ola_mundo/src/views/home_page_view.dart';
 
-void main() {
-  runApp(const MyApp("Testando"));
+void main(List<String> args) {
+  runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp(this.name, {super.key});
-
-  final String name;
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  double salario = 3500;
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: GestureDetector(
-        onTap: () {
-          log("Clicando");
-          // aumentarSalario();
-          diminuirSalario();
-          log(salario.toString());
-        },
-        child: Text("Meu nome é ${widget.name} e meu salário é $salario",
-            textDirection: TextDirection.ltr),
-      ),
+    return MaterialApp(
+      title: "Flutter Demo",
+      theme: ThemeData.dark(),
+      home: HomePage(key: super.key),
     );
-  }
-
-  void aumentarSalario() {
-    setState(() {
-      salario = salario + 100;
-    });
-  }
-
-  void diminuirSalario() {
-    setState(() {
-      salario = salario - 100;
-    });
   }
 }
