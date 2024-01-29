@@ -32,10 +32,12 @@ class RowCurrency extends StatelessWidget {
                 color: Colors.deepPurpleAccent,
               ),
               items: currencies
-                  .map((e) => DropdownMenuItem(
-                        value: e,
-                        child: Text(e.name),
-                      ))
+                  .map(
+                    (e) => DropdownMenuItem(
+                      value: e,
+                      child: Text(e.name),
+                    ),
+                  )
                   .toList(),
               onChanged: onChanged,
             ),
